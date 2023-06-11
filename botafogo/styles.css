@@ -131,6 +131,7 @@ tbody tr:nth-child(even) {
 }
 
 
+
 @media (max-width: 768px) {
   .coluna {
     width: 50%;
