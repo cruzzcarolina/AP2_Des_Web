@@ -814,3 +814,4 @@ function main() {
 
 // Executa a função principal ao carregar a página
 window.addEventListener('load', main);
+
