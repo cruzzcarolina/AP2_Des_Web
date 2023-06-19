@@ -812,4 +812,3 @@ function pesquisarJogador() {
   // Executa a função principal ao carregar a página
   window.addEventListener('DOMContentLoaded', main);
   
-
