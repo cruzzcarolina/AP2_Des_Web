@@ -696,31 +696,45 @@ const jogadores = [
     const elencoFeminino = document.getElementById('elenco_feminino');
     const elencoMasculino = document.getElementById('elenco_masculino');
   
-    for (let i = 0; i < jogadores.length; i++) {
-      const jogador = jogadores[i];
-      const elementoJogador = document.createElement('div');
-      elementoJogador.className = 'jogador';
-      elementoJogador.addEventListener('click', function() {
-        armazenarDetalhesJogador(jogador);
-        window.location.href = 'detalhes.html';
-      });
+    if (elencoFeminino && elencoMasculino) {
+      elencoFeminino.innerHTML = '';
+      elencoMasculino.innerHTML = '';
   
-      const imagem = document.createElement('img');
-      imagem.src = jogador.imagem;
+      const numColunas = window.innerWidth < 768 ? 2 : window.innerWidth < 1024 ? 4 : 6;
   
-      const nome = document.createElement('p');
-      nome.textContent = jogador.nome;
+      for (let i = 0; i < jogadores.length; i++) {
+        const jogador = jogadores[i];
+        const elementoJogador = document.createElement('div');
+        elementoJogador.className = 'jogador';
   
-      elementoJogador.appendChild(imagem);
-      elementoJogador.appendChild(nome);
+        const imagem = document.createElement('img');
+        imagem.src = jogador.imagem;
   
-      if (jogador.elenco === 'feminino') {
-        elencoFeminino.appendChild(elementoJogador);
-      } else if (jogador.elenco === 'masculino') {
-        elencoMasculino.appendChild(elementoJogador);
+        const nome = document.createElement('p');
+        nome.textContent = jogador.nome;
+  
+        elementoJogador.appendChild(imagem);
+        elementoJogador.appendChild(nome);
+  
+        elementoJogador.addEventListener('click', function () {
+          armazenarDetalhesJogador(jogador);
+          window.location.href = 'detalhes.html';
+        });
+  
+        if (jogador.elenco === 'feminino' && elencoFeminino) {
+          elencoFeminino.appendChild(elementoJogador);
+        } else if (jogador.elenco === 'masculino' && elencoMasculino) {
+          elencoMasculino.appendChild(elementoJogador);
+        }
+  
+        elementoJogador.style.width = `calc(100% / ${numColunas})`;
       }
     }
   }
+  
+  window.addEventListener('resize', exibirJogadores);
+  exibirJogadores();
+  
   
   // Função para armazenar os detalhes do jogador selecionado
   function armazenarDetalhesJogador(jogador) {
@@ -794,24 +808,8 @@ function pesquisarJogador() {
 
   alert('Jogador não encontrado!');
 }
-
-// Função para adicionar evento de clique ao botão de pesquisa
-function adicionarEventoPesquisar() {
-  const searchButton = document.getElementById('search-button');
-  searchButton.addEventListener('click', pesquisarJogador);
-}
-
-// Função principal
-function main() {
-  exibirJogadores();
-
-  if (window.location.pathname.includes('detalhes.html')) {
-    exibirDetalhesJogador();
-  }
-
-  adicionarEventoPesquisar();
-}
-
-// Executa a função principal ao carregar a página
-window.addEventListener('load', main);
+  
+  // Executa a função principal ao carregar a página
+  window.addEventListener('DOMContentLoaded', main);
+  
 

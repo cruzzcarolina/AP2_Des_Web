@@ -63,11 +63,8 @@ h2 {
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-  display: flex;
   width: 100%;
-  justify-content: space-around;
 }
-
 
 #detalhes_jogador img {
   display: block;
@@ -78,9 +75,30 @@ h2 {
   object-fit: cover;
 }
 
-#detalhes_jogador h3 {
-  text-align: center;
-  margin-top: 10px;
+#detalhes_jogador .info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  #detalhes_jogador {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  #detalhes_jogador img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 0;
+  }
+
+  #detalhes_jogador .info-container {
+    align-items: flex-start;
+    margin-left: 20px;
+  }
 }
 
 ul {
@@ -162,11 +180,43 @@ li {
   text-align: center;
 }
 
+/* Estilos base para dispositivos móveis */
+.jogador {
+  width: 100%;
+}
 
-@media screen and (max-width: 768px) {
-  #detalhes_jogador {
-    width: 100%;
-    flex-direction: column;
+/* Estilos para dispositivos com largura maior que 768px */
+@media (min-width: 768px) {
+  .jogador {
+    width: 50%;
   }
-  
+}
+
+/* Estilos para dispositivos com largura maior que 1024px */
+@media (min-width: 1024px) {
+  .jogador {
+    width: 33.3333%;
+  }
+}
+
+/* Estilos para dispositivos com largura maior que 1200px */
+@media (min-width: 1200px) {
+  .jogador {
+    width: 20%;
+  }
+}
+
+/* Estilos para limitar a largura máxima da lista em 1200px */
+.elenco_feminino,
+.elenco_masculino {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.jogador {
+  text-align: center;
+  margin: 10px;
 }

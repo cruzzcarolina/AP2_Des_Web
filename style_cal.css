@@ -62,8 +62,47 @@ nav ul li {
     background-color: #f2f2f2;
   }
   
-  @media (max-width: 600px) {
-    table {
-      font-size: 14px;
-    }
+  #elenco_feminino,
+#elenco_masculino {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .jogador {
+    width: 50%;
+    padding: 10px;
   }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .jogador {
+    width: 25%;
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .jogador {
+    width: 16.666%;
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #detalhes_jogador {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #detalhes_jogador img {
+    margin-bottom: 20px;
+  }
+
+  #info_jogador {
+    text-align: center;
+  }
+}
