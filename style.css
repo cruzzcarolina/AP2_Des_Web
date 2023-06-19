@@ -180,43 +180,43 @@ li {
   text-align: center;
 }
 
-/* Estilos base para dispositivos móveis */
-.jogador {
-  width: 100%;
-}
+@media screen and (max-width: 767px) {
+  #elenco_feminino,
+  #elenco_masculino {
+    justify-content: space-between;
+  }
 
-/* Estilos para dispositivos com largura maior que 768px */
-@media (min-width: 768px) {
   .jogador {
-    width: 50%;
+    width: calc(100% / 2);
   }
 }
 
-/* Estilos para dispositivos com largura maior que 1024px */
-@media (min-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #elenco_feminino,
+  #elenco_masculino {
+    justify-content: space-between;
+  }
+
   .jogador {
-    width: 33.3333%;
+    width: calc(100% / 4);
   }
 }
 
-/* Estilos para dispositivos com largura maior que 1200px */
-@media (min-width: 1200px) {
+@media screen and (min-width: 1024px) {
+  #elenco_feminino,
+  #elenco_masculino {
+    justify-content: space-between;
+  }
+
   .jogador {
-    width: 20%;
+    width: calc(100% / 6);
   }
 }
 
-/* Estilos para limitar a largura máxima da lista em 1200px */
-.elenco_feminino,
-.elenco_masculino {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.jogador {
-  text-align: center;
-  margin: 10px;
+@media screen and (min-width: 1200px) {
+  #elenco_feminino,
+  #elenco_masculino {
+    justify-content: space-between;
+    max-width: 1200px;
+  }
 }
